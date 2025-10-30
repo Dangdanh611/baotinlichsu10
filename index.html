@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Văn Minh Hy Lạp và La Mã</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .article-meta {
+            background: #f8f9fa;
+            padding: 20px 40px;
+            border-bottom: 3px solid #667eea;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .content {
+            padding: 50px 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section h2 {
+            font-size: 2.2em;
+            color: #1e3c72;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .section h3 {
+            font-size: 1.6em;
+            color: #2a5298;
+            margin: 30px 0 20px;
+        }
+
+        .section p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            text-align: justify;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .image-box {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: #f0f0f0;
+            min-height: 250px;
+        }
+
+        .image-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 20px;
+            font-size: 0.95em;
+            font-weight: 500;
+        }
+
+        .placeholder-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #999;
+            font-size: 0.9em;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-left: 5px solid #667eea;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .achievement-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .achievement-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .achievement-card h4 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .section h2 {
+                font-size: 1.8em;
+            }
+
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏛️ Văn Minh Hy Lạp và La Mã</h1>
+            <p class="subtitle">"Không có cơ sở văn minh Hy Lạp và La Mã thì cũng không có châu Âu hiện đại"</p>
+        </header>
+
+        <div class="article-meta">
+            <div class="meta-item">
+                <span>📅</span>
+                <span>Ngày: 04/11/2025</span>
+            </div>
+            <div class="meta-item">
+                <span>📖</span>
+                <span>Môn: Lịch sử 10</span>
+            </div>
+            <div class="meta-item">
+                <span>💡</span>
+                <span>Thực hiện: Tổ 4</span>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Giới thiệu -->
+            <div class="section">
+                <h2>Giới Thiệu</h2>
+                <p>
+                    Nền văn minh Hy Lạp và La Mã là hai trong số những nền văn minh vĩ đại nhất trong lịch sử nhân loại. 
+                    Chúng đã để lại những di sản vô giá về văn hóa, nghệ thuật, triết học, khoa học và hệ thống chính trị 
+                    mà ảnh hưởng sâu sắc đến sự phát triển của thế giới phương Tây và toàn cầu cho đến ngày nay.
+                </p>
+                
+                <div class="image-gallery">
+                    <div class="image-box">
+                        <div class="placeholder-text"></div>
+                        <img src="https://img.loigiaihay.com/picture/2021/1008/3pngue_1.png" alt="Bản đồ Hy Lạp cổ đại">
+                        <div class="image-caption">Bản đồ nền văn minh Hy Lạp cổ đại</div>
+                    </div>
+                    <div class="image-box">
+                        <div class="placeholder-text"></div>
+                        <img src="https://img.loigiaihay.com/picture/2022/0308/screenshot-2022-03-08-153014.png" alt="Bản đồ La Mã cổ đại">
+                        <div class="image-caption">Đế quốc La Mã ở thời kỳ cực성</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cơ sở hình thành -->
+            <div class="section">
+                <h2>Cơ Sở Hình Thành</h2>
+                
+                <h3>🏺 Nền Văn Minh Hy Lạp</h3>
+                <p>
+                    Nền văn minh Hy Lạp cổ đại hình thành từ khoảng thế kỷ 8 TCN, phát triển trên bán đảo Balkan và 
+                    các đảo ở biển Aegean. Địa hình núi non hiểm trở đã tạo nên các thành bang độc lập như 
+                    Athens, Sparta, Thebes... Vị trí địa lý thuận lợi giúp người Hy Lạp phát triển thương mại biển, 
+                    giao lưu văn hóa với các nền văn minh khác như Ai Cập, Phoenicia.
+                </p>
+
+                <h3>🏛️ Nền Văn Minh La Mã</h3>
+                <p>
+                    La Mã được thành lập vào khoảng năm 753 TCN bên bờ sông Tiber, nước Ý. Từ một thành bang nhỏ, 
+                    La Mã dần mở rộng thành đế quốc hùng mạnh nhờ quân đội kỷ luật, hệ thống pháp luật chặt chẽ và 
+                    khả năng hội nhập văn hóa. La Mã kế thừa nhiều yếu tố văn hóa Hy Lạp và phát triển thành một 
+                    đế chế trải dài khắp châu Âu, Bắc Phi và Tây Á.
+                </p>
+
+                <div class="highlight-box">
+                    <strong>💡 Điểm đặc biệt:</strong> Trong khi Hy Lạp nổi bật với các thành bang độc lập và nền 
+                    dân chủ, La Mã phát triển thành một đế chế tập trung với hệ thống quản lý thống nhất.
+                </div>
+            </div>
+
+            <!-- Thành tựu cơ bản -->
+            <div class="section">
+                <h2>Thành Tựu Cơ Bản</h2>
+
+                <h3>📚 Văn Học và Triết Học</h3>
+                <p>
+                    <strong>Hy Lạp:</strong> Nền văn minh Hy Lạp đã sinh ra những nhà triết học vĩ đại như Socrates, 
+                    Plato và Aristotle - những người đặt nền móng cho tư tưởng phương Tây. Các tác phẩm sử thi như 
+                    Iliad và Odyssey của Homer đã trở thành kiệt tác bất hủ. Các nhà kịch như Sophocles, Euripides 
+                    và Aristophanes đã sáng tạo ra thể loại bi kịch và hài kịch cổ điển.
+                </p>
+                <p>
+                    <strong>La Mã:</strong> Người La Mã đã phát triển thể loại văn học thực dụng với các tác phẩm 
+                    lịch sử, diễn thuyết và thơ ca. Các tác giả nổi tiếng như Virgil (Aeneid), Cicero (diễn thuyết), 
+                    Ovid (Metamorphoses) đã để lại những di sản văn học quan trọng.
+                </p>
+
+                <div class="image-gallery">
+                    <div class="image-box">
+                        <div class="placeholder-text"></div>
+                        <img src="https://i1-vnexpress.vnecdn.net/2016/01/18/The-School-of-Athens-3221-1453100648.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=Efg8kV-jNHfc0Manf6Vlbg" alt="Các nhà triết học Hy Lạp">
+                        <div class="image-caption">Trường học ở Hy Lạp</div>
+                    </div>
+                    <div class="image-box">
+                        <div class="placeholder-text"></div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Library_of_Celsus_6243.jpg" alt="Thư viện cổ đại">
+                        <div class="image-caption">di tích Thư viện Celsus</div>
+                    </div>
+                </div>
+
+                <h3>🎨 Nghệ Thuật và Kiến Trúc</h3>
+                <p>
+                    <strong>Hy Lạp:</strong> Nghệ thuật Hy Lạp tôn vinh vẻ đẹp con người và sự hài hòa. Các đền thờ 
+                    như Parthenon với các cột Doric, Ionic và Corinthian đã trở thành biểu tượng của kiến trúc cổ điển. 
+                    Nghệ thuật điêu khắc Hy Lạp với những tác phẩm như tượng Discobolus (người ném đĩa) hay Venus de Milo 
+                    thể hiện sự hoàn mỹ về tỷ lệ và chuyển động.
+                </p>
+                <p>
+                    <strong>La Mã:</strong> Người La Mã nổi tiếng với kỹ thuật xây dựng vượt trội. Họ phát minh ra 
+                    bê tông La Mã, xây dựng các công trình đồ sộ như Colosseum, Pantheon với mái vòm khổng lồ, các 
+                    cầu vượt, đường La Mã và hệ thống cống rãnh phức tạp. Kiến trúc La Mã mang tính thực dụng cao, 
+                    phục vụ đời sống công cộng.
+                </p>
+
+                <div class="image-gallery">
+                    <div class="image-box">
+                        <div class="placeholder-text"></div>
+                        <img src="https://vietsensetravel.com/view/at_thong-tin-chung-ve-den-parthenon--anh-1_26bbf7abd6f6a6f06b2b8855da8c075e.jpg" alt="Đền Parthenon">
+                        <div class="image-caption">Đền Parthenon - biểu tượng kiến trúc Hy Lạp</div>
+                    </div>
+                    <div class="image-box">
+                        <div class="placeholder-text"></div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Colosseo_2020.jpg" alt="Colosseum">
+                        <div class="image-caption">Đấu trường Colosseum - kỳ quan La Mã</div>
+                    </div>
+                    <div class="image-box">
+                        <div class="placeholder-text"></div>
+                        <img src="https://grandart.com.vn/wp-content/uploads/2022/10/tuong-luc-si-nem-dia-discobolus-ph0122-5.jpg" alt="Tượng điêu khắc">
+                        <div class="image-caption">Nghệ thuật điêu khắc Hy Lạp cổ điển</div>
+                    </div>
+                </div>
+
+                <h3>🔬 Khoa Học và Toán Học</h3>
+                <p>
+                    <strong>Hy Lạp:</strong> Người Hy Lạp là những người tiên phong trong khoa học và toán học. 
+                    Pythagoras với định lý hình học, Euclid với "Cơ sở Hình học", Archimedes với các phát minh cơ học 
+                    và nguyên lý về lực đẩy. Hippocrates được coi là "cha đẻ của y học", đặt nền móng cho y học khoa học. 
+                    Các nhà thiên văn học như Aristarchus đã đề xuất thuyết nhật tâm trước Copernicus hàng nghìn năm.
+                </p>
+                <p>
+                    <strong>La Mã:</strong> Tuy không nổi bật bằng Hy Lạp về khoa học thuần túy, người La Mã xuất sắc 
+                    trong kỹ thuật ứng dụng. Họ phát triển hệ thống kỹ thuật dân dụng, cải tiến lịch (Lịch Julius), 
+                    xây dựng hệ thống cấp nước và y học thực hành với các bác sĩ như Galen.
+                </p>
+
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <div class="achievement-icon">📐</div>
+                        <h4>Toán Học</h4>
+                        <p>Định lý Pythagoras, Hình học Euclid</p>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">⚗️</div>
+                        <h4>Khoa Học</h4>
+                        <p>Nguyên lý Archimedes, Thuyết nguyên tử</p>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">⚕️</div>
+                        <h4>Y Học</h4>
+                        <p>Tuyên ngôn Hippocrates, Y học Galen</p>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">🌍</div>
+                        <h4>Địa Lý</h4>
+                        <p>Bản đồ thế giới, Đo chu vi Trái Đất</p>
+                    </div>
+                </div>
+
+                <h3>⚖️ Chính Trị và Pháp Luật</h3>
+                <p>
+                    <strong>Hy Lạp:</strong> Athens đã phát triển chế độ dân chủ trực tiếp - một trong những hệ thống 
+                    chính trị tiên tiến nhất thời cổ đại. Công dân có quyền bỏ phiếu trực tiếp về các vấn đề nhà nước. 
+                    Khái niệm về quyền công dân, luật pháp công bằng và tòa án bồi thẩm đoàn đều xuất phát từ Hy Lạp.
+                </p>
+                <p>
+                    <strong>La Mã:</strong> Luật La Mã (Roman Law) là một trong những di sản pháp lý quan trọng nhất. 
+                    Bộ luật 12 bảng đồng, sau này là Bộ luật Justinian, đã đặt nền móng cho hệ thống luật dân sự hiện đại. 
+                    Các nguyên tắc như "vô tội cho đến khi chứng minh có tội", quyền sở hữu tài sản, và hợp đồng pháp lý 
+                    đều bắt nguồn từ La Mã.
+                </p>
+
+                <div class="image-gallery">
+                    <div class="image-box">
+                        <div class="placeholder-text"></div>
+                        <img src="https://media.istockphoto.com/id/628964534/vi/anh/t%C3%B2a-nh%C3%A0-qu%E1%BB%91c-h%E1%BB%99i-hy-l%E1%BA%A1p-%E1%BB%9F-athens-hy-l%E1%BA%A1p.webp?s=2048x2048&w=is&k=20&c=PoBQpgTOxEvCYssznkumR6ckQpjNF7VXlFSj69kv7EI=" alt="Dân chủ Athens">
+                        <div class="image-caption">Quốc hội dân chủ Athens</div>
+                    </div>
+                    <div class="image-box">
+                        <div class="placeholder-text"></div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Cicero_Denounces_Catiline_in_the_Roman_Senate_by_Cesare_Maccari_-_3.jpg" alt="Thượng viện La Mã">
+                        <div class="image-caption">Thượng viện La Mã</div>
+                    </div>
+                </div>
+
+                <h3>🏃 Thể Thao và Giải Trí</h3>
+                <p>
+                    <strong>Hy Lạp:</strong> Thế vận hội Olympic cổ đại được tổ chức lần đầu vào năm 776 TCN tại Olympia, 
+                    là sự kiện thể thao lớn nhất thế giới cổ đại. Các môn thể thao không chỉ rèn luyện thể chất mà còn 
+                    tôn vinh tinh thần cạnh tranh lành mạnh và sự hoàn thiện con người.
+                </p>
+                <p>
+                    <strong>La Mã:</strong> Người La Mã yêu thích các trò giải trí quy mô lớn như đấu sĩ (gladiator), 
+                    đua xe ngựa tại Circus Maximus, và các vở kịch. Khẩu hiệu "bánh mì và xiếc" (panem et circenses) 
+                    phản ánh tầm quan trọng của giải trí trong đời sống xã hội La Mã.
+                </p>
+
+                <div class="image-gallery">
+                    <div class="image-box">
+                        <div class="placeholder-text"></div>
+                        <img src="https://quaviet.com/wp-content/uploads/2019/05/bieu-tuong-the-thao-olympic-mang-y-nghia-gi-anh-1.png" alt="Olympic Hy Lạp">
+                        <div class="image-caption">Thế vận hội Olympic cổ đại</div>
+                    </div>
+                    <div class="image-box">
+                        <div class="placeholder-text"></div>
+                        <img src="https://icdn.dantri.com.vn/thumb_w/1280/2017/gladiatrice-2-1508257007295.jpg" alt="Đấu sĩ La Mã">
+                        <div class="image-caption">Trận đấu sĩ trong Colosseum</div>
+                    </div>
+                </div>
+
+                <h3>🌐 Ngôn Ngữ và Chữ Viết</h3>
+                <p>
+                    <strong>Hy Lạp:</strong> Bảng chữ cái Hy Lạp đã ảnh hưởng đến nhiều hệ thống chữ viết khác, bao gồm 
+                    chữ Latin và chữ Cyrillic. Tiếng Hy Lạp cổ là ngôn ngữ của triết học, khoa học và nghệ thuật, nhiều 
+                    thuật ngữ khoa học hiện đại vẫn có gốc từ tiếng Hy Lạp.
+                </p>
+                <p>
+                    <strong>La Mã:</strong> Tiếng Latin là ngôn ngữ chính thức của đế quốc La Mã, sau này trở thành nền 
+                    tảng cho các ngôn ngữ Rôman (Pháp, Tây Ban Nha, Ý, Bồ Đào Nha, Romania). Latin vẫn được sử dụng trong 
+                    khoa học, y học, luật pháp và tôn giáo cho đến ngày nay.
+                </p>
+
+                <div class="highlight-box">
+                    <strong>🌟 Ảnh hưởng đến hiện đại:</strong> Nhiều từ trong tiếng Anh và các ngôn ngữ châu Âu có gốc 
+                    từ tiếng Hy Lạp và Latin. Ví dụ: "democracy" (dân chủ) từ demos (người dân) + kratos (quyền lực), 
+                    "philosophy" từ philos (yêu) + sophia (trí tuệ).
+                </div>
+            </div>
+
+            <!-- Kết luận -->
+            <div class="section">
+                <h2>Kết Luận</h2>
+                <p>
+                    Nền văn minh Hy Lạp và La Mã đã để lại những di sản vô giá cho nhân loại. Từ triết học, khoa học, 
+                    nghệ thuật đến hệ thống chính trị và pháp luật, ảnh hưởng của hai nền văn minh này vẫn còn hiện hữu 
+                    rõ nét trong xã hội hiện đại. Họ đã chứng minh rằng sự kết hợp giữa tư duy sáng tạo, tổ chức xã hội 
+                    hiệu quả và khát vọng vươn tới sự hoàn thiện có thể tạo ra những thành tựu bất hủ, vượt qua hàng 
+                    nghìn năm lịch sử.
+                </p>
+                <p>
+                    Việc nghiên cứu và hiểu biết về hai nền văn minh này không chỉ giúp chúng ta nhìn nhận quá khứ mà 
+                    còn rút ra những bài học quý giá cho sự phát triển của xã hội đương đại và tương lai.
+                </p>
+
+                <div class="image-gallery">
+                    <div class="image-box">
+                        <div class="placeholder-text"></div>
+                        <img src="https://anphulong.com/wp-content/uploads/2019/05/92164212w10000-444016-1557794748_1200x0.jpg" alt="Di sản Hy Lạp La Mã">
+                        <div class="image-caption">Di sản bất hủ của Hy Lạp và La Mã</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; Báo tin Lịch Sử. Thông tin chỉ mang tính chất tham khảo!!</p>
+            <p style="margin-top: 10px; opacity: 0.8;">Được thiết kế bởi 10C4 để chia sẻ kiến thức lịch sử</p>
+        </footer>
+    </div>
+
+    <script>
+        // Hiệu ứng cuộn mượt
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Hiệu ứng fade-in khi cuộn
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section, .image-box, .achievement-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Xử lý hình ảnh placeholder
+        document.querySelectorAll('.image-box img').forEach(img => {
+            if (!img.src || img.src === window.location.href) {
+                img.style.display = 'none';
+            } else {
+                img.onload = function() {
+                    this.style.display = 'block';
+                    this.previousElementSibling.style.display = 'none';
+                };
+                img.onerror = function() {
+                    this.style.display = 'none';
+                };
+            }
+        });
+    </script>
+</body>
+</html>
