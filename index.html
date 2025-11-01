@@ -222,7 +222,7 @@
         <div class="article-meta">
             <div class="meta-item">
                 <span>📅</span>
-                <span>Ngày: 04/11/2025</span>
+                <span id="today"></span>
             </div>
             <div class="meta-item">
                 <span>📖</span>
@@ -531,7 +531,25 @@
                 };
             }
         });
+         function getVietnamDate() {
+            // Lấy thời gian hiện tại theo UTC
+            const now = new Date();
+
+            // Chuyển sang múi giờ Việt Nam (UTC+7)
+            const vietnamTime = new Date(now.getTime() + 7 * 60 * 60 * 1000);
+
+            // Lấy ngày, tháng, năm
+            const day = vietnamTime.getUTCDate().toString().padStart(2, '0');
+            const month = (vietnamTime.getUTCMonth() + 1).toString().padStart(2, '0'); // Tháng bắt đầu từ 0
+            const year = vietnamTime.getUTCFullYear();
+
+            // Trả về chuỗi dd/mm/yyyy
+            return `${day}/${month}/${year}`;
+        }
+
+        document.getElementById("today").textContent = getVietnamDate();
     </script>
 </body>
 
 </html>
+
